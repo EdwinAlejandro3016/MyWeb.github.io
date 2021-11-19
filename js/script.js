@@ -1,16 +1,9 @@
 const frase = document.querySelector('#animation');
-let fraseCOMPLETA =  frase.textContent; 
+let fraseCOMPLETA =  "Edwin Albarracin"; 
 let fraseDESTRUCTURADA = fraseCOMPLETA.split(''); //la llevo a array
 
 let fraseCOMPLETA2 =  "Web Developer";
 let fraseDESTRUCTURADA2 = fraseCOMPLETA2.split(''); //la llevo array
-let variables = {
-    posicion: 0,
-    fraseTOTAL: String,
-    letraGuardada1: String,
-    bandera: false,
-    vuelta: 0
-}
 
 const animation = ()=>{
     let posicion = 0;
