@@ -1,9 +1,50 @@
 const frase = document.querySelector('#animation');
+const form = document.querySelector('.form');
 let fraseCOMPLETA =  "Edwin Albarracin"; 
 let fraseDESTRUCTURADA = fraseCOMPLETA.split(''); //la llevo a array
 
 let fraseCOMPLETA2 =  "Web Developer";
 let fraseDESTRUCTURADA2 = fraseCOMPLETA2.split(''); //la llevo array
+
+form.addEventListener('submit',(e)=>{
+    e.preventDefault();
+    const inputs =  document.querySelectorAll('form .box');
+    let errores = [];
+
+    const addFocus = (obj,msg)=>{ 
+        obj.addEventListener('focus',(e)=>{
+            e.target.placeholder = msg;
+            obj.style.border = 'none';
+        })
+    }
+
+    const addError = (obj,msg)=>{
+        obj.placeholder = msg;
+        obj.style.border = '2px solid #f9ca24';
+        errores.push({error: msg});
+    }
+
+    if(!form.name.value){
+       addError(form.name,'Write a name');
+       addFocus(form.name,'name');
+    }
+
+    if(!form.email.value){
+        addError(form.email,'Write a email');
+        addFocus(form.email,'email');
+    }
+    if(!form.message.value){
+        addError(form.message,'Write a message');
+        addFocus(form.message,'message');
+    }
+
+    if(!errores.length > 0){
+        inputs.forEach(input=>{
+            input.value = '';
+        })
+        alert('Message Send Succesfuly');
+    }
+})
 
 const animation = ()=>{
     let posicion = 0;
